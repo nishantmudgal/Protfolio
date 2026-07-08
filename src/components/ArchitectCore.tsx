@@ -1,9 +1,75 @@
 import React, { useState } from "react";
 import { SKILLS_DATA } from "../types";
 import { 
-  Terminal, ShieldCheck, Cpu, Layers, Sparkles, Code, CheckCircle, ArrowRight, Lightbulb 
+  Terminal, ShieldCheck, Cpu, Layers, Sparkles, Code, CheckCircle, ArrowRight, Lightbulb,
+  Briefcase, GraduationCap, MapPin, Calendar, Building2
 } from "lucide-react";
 import { motion } from "motion/react";
+
+const journeyData = [
+  {
+    id: "mckinsey",
+    type: "experience",
+    role: "Software Engineer (Full-time)",
+    organization: "McKinsey & Company",
+    location: "Gurugram, India",
+    period: "June 2022 – Present",
+    details: [
+      "Architecting responsive, high-performance web applications and internal portals for global enterprise clients using React, TypeScript, and optimized asset pipelines.",
+      "Spearheading UI optimization initiatives, reducing First Contentful Paint (FCP) and initial bundle sizes by applying code-splitting, lazy hydration, and strict caching strategies.",
+      "Fostering standard modular component hierarchies and contributing to complex design systems with complete WCAG accessibility compliance."
+    ],
+    tags: ["React 18", "TypeScript", "Next.js", "Performance Tuning", "Design Systems"],
+    color: "primary"
+  },
+  {
+    id: "nsut",
+    type: "education",
+    role: "Master’s of Technology",
+    specialization: "Machine Intelligence and Data Analytics",
+    organization: "Netaji Subhash University of Technology (NSUT)",
+    location: "Delhi, India",
+    period: "Sept 2020 - June 2022",
+    details: [
+      "Specialized in deep learning architectures, cognitive machine intelligence models, and high-dimensional analytics systems.",
+      "Conducted intensive statistical computing, telemetry modeling, and research on deploying optimized data-driven frameworks.",
+      "Developed smart analytical visualization applications translating high-frequency datasets into actionable insights."
+    ],
+    tags: ["Machine Learning", "Data Analytics", "Deep Learning", "Python", "Algorithms"],
+    color: "tertiary"
+  },
+  {
+    id: "idemia",
+    type: "experience",
+    role: "Software Engineer (Full-time)",
+    organization: "IDEMIA",
+    location: "Noida, India",
+    period: "Jan 2018 – Sept 2019",
+    details: [
+      "Engineered cryptographic security integrations and high-throughput biometrics verification client modules.",
+      "Developed robust software solutions with strict security directives to safeguard identity management systems.",
+      "Optimized critical runtime routines and transactional operations, ensuring minimum frame latency and clean state updates."
+    ],
+    tags: ["Systems Engineering", "C++", "Java", "Security Protocols", "Cryptography"],
+    color: "secondary"
+  },
+  {
+    id: "chitkara",
+    type: "education",
+    role: "Bachelor’s of Technology",
+    specialization: "Computer Science Engineering",
+    organization: "Chitkara University",
+    location: "Punjab, India",
+    period: "August 2014 - June 2018",
+    details: [
+      "Acquired core foundations in data structures, compiler design, and software engineering methodologies.",
+      "Engineered multi-tier full-stack academic projects, prioritizing performant UI layers and clean modular logic separation.",
+      "Completed graduation with honors, with final capstone research centering on reactive micro-controller interfaces."
+    ],
+    tags: ["Computer Science", "Data Structures", "Algorithms", "OOP", "Software Design"],
+    color: "primary"
+  }
+];
 
 export default function ArchitectCore() {
   const [selectedSkillCategory, setSelectedSkillCategory] = useState<string>("All");
@@ -113,6 +179,145 @@ export default function ArchitectCore() {
             </div>
             <div className="absolute bottom-3 right-4 text-[9px] font-mono text-outline">
               COMPILER: VITE_ESBUILD
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Professional Journey Section (Staggered Layout exactly like screenshot) */}
+      <section id="professional-journey" className="space-y-10 pt-10 border-t border-outline-variant/30 text-left">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2 text-left">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-headline font-semibold text-on-surface">
+              Professional Journey
+            </h2>
+            <p className="text-xs sm:text-sm text-on-surface-variant font-medium mt-1">
+              A chronicle of technical evolution and academic foundations.
+            </p>
+          </div>
+          <div className="text-xs font-mono uppercase tracking-widest text-on-surface-variant font-semibold self-start sm:self-auto pt-1">
+            02 // CHRONICLE
+          </div>
+        </div>
+
+        {/* Timeline container */}
+        <div className="relative space-y-12 py-6">
+          {/* Timeline center line (desktop) or left line (mobile) */}
+          <div className="absolute left-[16px] md:left-1/2 top-0 bottom-0 w-[1px] bg-outline-variant/40 md:-translate-x-1/2" />
+
+          {/* Row 1: McKinsey */}
+          <div className="relative grid grid-cols-1 md:grid-cols-12 md:gap-12 gap-6 items-center">
+            {/* Timeline Bullet */}
+            <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-background border-[2.5px] border-tertiary z-10 flex items-center justify-center" style={{ boxShadow: "0 0 12px rgba(45, 212, 191, 0.6)" }} />
+
+            {/* Left Column: Aligned Right (Desktop), Aligned Left (Mobile) */}
+            <div className="pl-8 md:pl-0 md:col-span-5 md:text-right space-y-1">
+              <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-tertiary uppercase block">
+                JUNE 2022 – PRESENT
+              </span>
+              <h3 className="text-lg font-headline font-bold text-on-surface leading-tight">
+                Software Engineer (Full-time)
+              </h3>
+              <p className="text-sm font-semibold text-on-surface-variant">
+                McKinsey & Company
+              </p>
+            </div>
+
+            {/* Middle space */}
+            <div className="hidden md:block md:col-span-2" />
+
+            {/* Right Column: Card */}
+            <div className="pl-8 md:pl-0 md:col-span-5">
+              <div className="glass-card p-4 sm:p-5 rounded-xl border border-outline-variant/35 text-xs sm:text-sm text-on-surface-variant font-medium leading-relaxed shadow-sm hover:border-outline/45 hover:shadow-md transition-all duration-300">
+                Leading frontend architecture for client-facing web applications serving 5M+ monthly users, focusing on React/Next.js modernization and design system implementation.
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2: NSUT */}
+          <div className="relative grid grid-cols-1 md:grid-cols-12 md:gap-12 gap-6 items-center">
+            {/* Timeline Bullet */}
+            <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-background border-[2.5px] border-secondary z-10 flex items-center justify-center" style={{ boxShadow: "0 0 12px rgba(168, 85, 247, 0.6)" }} />
+
+            {/* Left Column: Card (Desktop), Date/Info (Mobile) */}
+            <div className="pl-8 md:pl-0 md:col-span-5 order-last md:order-first">
+              <div className="glass-card p-4 sm:p-5 rounded-xl border border-outline-variant/35 text-xs sm:text-sm text-on-surface-variant font-medium leading-relaxed shadow-sm hover:border-outline/45 hover:shadow-md transition-all duration-300">
+                Specialized in Machine Intelligence and Data Analytics, bridging the gap between advanced algorithms and practical software implementation.
+              </div>
+            </div>
+
+            {/* Middle space */}
+            <div className="hidden md:block md:col-span-2" />
+
+            {/* Right Column: Info (Desktop), Card (Mobile - reordered via order CSS) */}
+            <div className="pl-8 md:pl-0 md:col-span-5 md:text-left space-y-1 order-first md:order-last">
+              <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-secondary uppercase block">
+                SEPT 2020 - JUNE 2022
+              </span>
+              <h3 className="text-lg font-headline font-bold text-on-surface leading-tight">
+                M.Tech - Machine Intelligence
+              </h3>
+              <p className="text-sm font-semibold text-on-surface-variant">
+                Netaji Subhash University of Technology
+              </p>
+            </div>
+          </div>
+
+          {/* Row 3: IDEMIA */}
+          <div className="relative grid grid-cols-1 md:grid-cols-12 md:gap-12 gap-6 items-center">
+            {/* Timeline Bullet */}
+            <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-background border-[2.5px] border-tertiary z-10 flex items-center justify-center" style={{ boxShadow: "0 0 12px rgba(45, 212, 191, 0.6)" }} />
+
+            {/* Left Column: Info */}
+            <div className="pl-8 md:pl-0 md:col-span-5 md:text-right space-y-1">
+              <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-tertiary uppercase block">
+                JAN 2018 – SEPT 2019
+              </span>
+              <h3 className="text-lg font-headline font-bold text-on-surface leading-tight">
+                Software Engineer (Full-time)
+              </h3>
+              <p className="text-sm font-semibold text-on-surface-variant">
+                IDEMIA
+              </p>
+            </div>
+
+            {/* Middle space */}
+            <div className="hidden md:block md:col-span-2" />
+
+            {/* Right Column: Card */}
+            <div className="pl-8 md:pl-0 md:col-span-5">
+              <div className="glass-card p-4 sm:p-5 rounded-xl border border-outline-variant/35 text-xs sm:text-sm text-on-surface-variant font-medium leading-relaxed shadow-sm hover:border-outline/45 hover:shadow-md transition-all duration-300">
+                Developed production-grade firmware for biometric access-control systems using C++, Linux, and embedded systems.
+              </div>
+            </div>
+          </div>
+
+          {/* Row 4: Chitkara */}
+          <div className="relative grid grid-cols-1 md:grid-cols-12 md:gap-12 gap-6 items-center">
+            {/* Timeline Bullet */}
+            <div className="absolute left-[16px] md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-background border-[2.5px] border-secondary z-10 flex items-center justify-center" style={{ boxShadow: "0 0 12px rgba(168, 85, 247, 0.6)" }} />
+
+            {/* Left Column: Card (Desktop) */}
+            <div className="pl-8 md:pl-0 md:col-span-5 order-last md:order-first">
+              <div className="glass-card p-4 sm:p-5 rounded-xl border border-outline-variant/35 text-xs sm:text-sm text-on-surface-variant font-medium leading-relaxed shadow-sm hover:border-outline/45 hover:shadow-md transition-all duration-300">
+                Foundational studies in Computer Science Engineering, focusing on core software principles and systems architecture.
+              </div>
+            </div>
+
+            {/* Middle space */}
+            <div className="hidden md:block md:col-span-2" />
+
+            {/* Right Column: Info */}
+            <div className="pl-8 md:pl-0 md:col-span-5 md:text-left space-y-1 order-first md:order-last">
+              <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-secondary uppercase block">
+                AUG 2014 - JUNE 2018
+              </span>
+              <h3 className="text-lg font-headline font-bold text-on-surface leading-tight">
+                B.Tech - Computer Science
+              </h3>
+              <p className="text-sm font-semibold text-on-surface-variant">
+                Chitkara University
+              </p>
             </div>
           </div>
         </div>
