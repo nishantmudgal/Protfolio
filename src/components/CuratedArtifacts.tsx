@@ -64,83 +64,10 @@ export default function CuratedArtifacts() {
         </div>
       </div>
 
-      {/* Main split dashboard view */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left side: Project grid cards */}
-        <div className="lg:col-span-6 space-y-4">
-          {filteredProjects.map((proj) => {
-            const isActive = activeProjectDemo === proj.id;
-            return (
-              <div 
-                key={proj.id}
-                onClick={() => setActiveProjectDemo(proj.id)}
-                className={`p-5 bg-surface-container border rounded-xl text-left transition-all cursor-pointer relative group ${
-                  isActive 
-                    ? "border-primary ring-1 ring-primary/40 shadow-lg" 
-                    : "border-outline-variant/50 hover:border-outline-variant hover:bg-surface-container/85"
-                }`}
-              >
-                <div className="flex justify-between items-start mb-2.5">
-                  <div>
-                    <span className="text-[10px] font-mono text-primary font-semibold uppercase tracking-wider block mb-0.5">
-                      {proj.category.toUpperCase()}
-                    </span>
-                    <h3 className="text-base font-headline font-semibold text-on-surface group-hover:text-primary transition-colors">
-                      {proj.title}
-                    </h3>
-                  </div>
-
-                  <span className={`text-[10px] font-mono rounded px-1.5 py-0.5 border ${
-                    isActive 
-                      ? "bg-primary/10 text-primary border-primary/20" 
-                      : "bg-surface-container-high text-on-surface-variant border-outline-variant/40"
-                  }`}>
-                    {isActive ? "ACTIVE SANDBOX" : "PLAY DEMO"}
-                  </span>
-                </div>
-
-                <p className="text-xs text-on-surface-variant font-sans leading-relaxed mb-4">
-                  {proj.description}
-                </p>
-
-                {/* Performance stats bento block */}
-                <div className="grid grid-cols-3 gap-2.5 mb-4">
-                  {proj.metrics.map((m, idx) => (
-                    <div key={idx} className="bg-surface-container-lowest border border-outline-variant/30 p-2 rounded">
-                      <span className="text-[8px] uppercase tracking-wider text-outline font-mono block">
-                        {m.label}
-                      </span>
-                      <span className="text-xs font-mono font-medium text-on-surface">
-                        {m.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {proj.tags.map((t, idx) => (
-                    <span key={idx} className="text-[9px] font-mono text-on-surface-variant px-1.5 py-0.5 bg-surface-container-high/70 border border-outline-variant/20 rounded">
-                      #{t}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="text-[10px] text-on-surface-variant font-mono leading-relaxed border-t border-outline-variant/20 pt-2.5 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-tertiary shrink-0" />
-                  <span>{proj.highlight}</span>
-                </div>
-
-                {/* Slide index helper */}
-                <div className={`absolute top-0 bottom-0 left-0 w-1 transition-all ${
-                  isActive ? "bg-primary" : "bg-transparent"
-                }`} />
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Right side: Active interactive simulation terminal panel */}
-        <div className="lg:col-span-6 lg:sticky lg:top-24">
+      {/* Main stacked dashboard view */}
+      <div className="space-y-8">
+        {/* Top: Active interactive simulation terminal panel (Full Width) */}
+        <div className="w-full">
           <div className="border border-outline-variant rounded-2xl overflow-hidden bg-surface-container-low shadow-xl">
             {/* Simulation console header */}
             <div className="px-4 py-3 bg-surface-container border-b border-outline-variant/50 flex justify-between items-center text-left">
@@ -170,6 +97,94 @@ export default function CuratedArtifacts() {
                 This playground runs native React client state engines and real HTML5 canvas particle buffers to demonstrate performance optimization under high loads.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Bottom: Project list (Horizontal Scroll) */}
+        <div className="space-y-3 text-left">
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] font-mono text-outline uppercase tracking-wider font-bold">
+              Available Artifacts ({filteredProjects.length})
+            </span>
+            <span className="text-[10px] font-mono text-outline-variant hidden sm:inline">
+              Scroll or swipe horizontally to select
+            </span>
+          </div>
+
+          <div className="flex items-stretch overflow-x-auto gap-4 pb-4 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory">
+            {filteredProjects.map((proj) => {
+              const isActive = activeProjectDemo === proj.id;
+              return (
+                <div 
+                  key={proj.id}
+                  onClick={() => setActiveProjectDemo(proj.id)}
+                  className={`flex-shrink-0 w-[290px] sm:w-[350px] md:w-[380px] snap-start p-5 bg-surface-container border rounded-xl text-left transition-all cursor-pointer relative group flex flex-col justify-between ${
+                    isActive 
+                      ? "border-primary ring-1 ring-primary/40 shadow-lg" 
+                      : "border-outline-variant/50 hover:border-outline-variant hover:bg-surface-container/85"
+                  }`}
+                >
+                  <div>
+                    <div className="flex justify-between items-start mb-2.5">
+                      <div>
+                        <span className="text-[10px] font-mono text-primary font-semibold uppercase tracking-wider block mb-0.5">
+                          {proj.category.toUpperCase()}
+                        </span>
+                        <h3 className="text-base font-headline font-semibold text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                          {proj.title}
+                        </h3>
+                      </div>
+
+                      <span className={`text-[10px] font-mono rounded px-1.5 py-0.5 border shrink-0 ${
+                        isActive 
+                          ? "bg-primary/10 text-primary border-primary/20" 
+                          : "bg-surface-container-high text-on-surface-variant border-outline-variant/40"
+                      }`}>
+                        {isActive ? "ACTIVE" : "PLAY DEMO"}
+                      </span>
+                    </div>
+
+                    <p className="text-xs text-on-surface-variant font-sans leading-relaxed mb-4 line-clamp-3 min-h-[54px]">
+                      {proj.description}
+                    </p>
+
+                    {/* Performance stats bento block */}
+                    <div className="grid grid-cols-3 gap-2.5 mb-4">
+                      {proj.metrics.map((m, idx) => (
+                        <div key={idx} className="bg-surface-container-lowest border border-outline-variant/30 p-2 rounded">
+                          <span className="text-[8px] uppercase tracking-wider text-outline font-mono block truncate">
+                            {m.label}
+                          </span>
+                          <span className="text-xs font-mono font-medium text-on-surface truncate block">
+                            {m.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {proj.tags.map((t, idx) => (
+                        <span key={idx} className="text-[9px] font-mono text-on-surface-variant px-1.5 py-0.5 bg-surface-container-high/70 border border-outline-variant/20 rounded">
+                          #{t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-[10px] text-on-surface-variant font-mono leading-relaxed border-t border-outline-variant/20 pt-2.5 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-tertiary shrink-0" />
+                      <span className="line-clamp-1">{proj.highlight}</span>
+                    </div>
+                  </div>
+
+                  {/* Highlight bar indicator */}
+                  <div className={`absolute top-0 bottom-0 left-0 w-1 transition-all rounded-l-xl ${
+                    isActive ? "bg-primary" : "bg-transparent"
+                  }`} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

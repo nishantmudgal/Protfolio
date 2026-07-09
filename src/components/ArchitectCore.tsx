@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { SKILLS_DATA } from "../types";
 import { 
   Terminal, ShieldCheck, Cpu, Layers, Sparkles, Code, CheckCircle, ArrowRight, Lightbulb,
   Briefcase, GraduationCap, MapPin, Calendar, Building2
 } from "lucide-react";
 import { motion } from "motion/react";
+
+import { AnimatePresence } from "motion/react";
 
 const journeyData = [
   {
@@ -75,6 +77,8 @@ export default function ArchitectCore() {
   const [selectedSkillCategory, setSelectedSkillCategory] = useState<string>("All");
   const [activeSpecialization, setActiveSpecialization] = useState<string | null>(null);
 
+
+
   const categories = ["All", "Frameworks", "Languages", "Performance", "Systems"];
 
   const filteredSkills = selectedSkillCategory === "All" 
@@ -104,7 +108,6 @@ export default function ArchitectCore() {
       icon: <ShieldCheck className="text-secondary" size={20} />,
       tagline: "Predictable, multi-layer reactive data coordination.",
       description: "I construct transactional event cycles using atomic models (Zustand, Redux Toolkit) to coordinate web sockets, client persistence tables, and secure local cache schemas.",
-      achievement: "Reduced frame stutter rate to 0 under high-frequency asynchronous state updates."
     }
   ];
 
@@ -399,9 +402,9 @@ export default function ArchitectCore() {
               <button
                 key={cat}
                 onClick={() => setSelectedSkillCategory(cat)}
-                className={`px-3 py-1 text-xs font-mono rounded-lg border transition-all ${
+                className={`px-3 py-1 text-xs font-mono rounded-lg border transition-all cursor-pointer ${
                   selectedSkillCategory === cat 
-                    ? "bg-primary/20 text-primary border-primary/40" 
+                    ? "bg-primary/20 text-primary border-primary/40 font-semibold" 
                     : "bg-surface-container-high border-outline-variant/55 hover:border-outline text-on-surface-variant"
                 }`}
               >
