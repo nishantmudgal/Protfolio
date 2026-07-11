@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { SKILLS_DATA } from "../types";
+import { SKILLS_DATA, SKILL_CATEGORIES } from "../types";
 import { 
-  Terminal, ShieldCheck, Cpu, Layers, Sparkles, Code, CheckCircle, ArrowRight, Lightbulb,
+  Terminal, Cpu, Layers, Sparkles, Code, CheckCircle, ArrowRight, Lightbulb,
   Briefcase, GraduationCap, MapPin, Calendar, Building2
 } from "lucide-react";
 import { motion } from "motion/react";
@@ -73,13 +73,17 @@ const journeyData = [
   }
 ];
 
-export default function ArchitectCore() {
+interface ArchitectCoreProps {
+  setActiveTab: (tab: string) => void;
+}
+
+export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
   const [selectedSkillCategory, setSelectedSkillCategory] = useState<string>("All");
   const [activeSpecialization, setActiveSpecialization] = useState<string | null>(null);
 
 
 
-  const categories = ["All", "Frameworks", "Languages", "Performance", "Systems"];
+  const categories = ["All", ...SKILL_CATEGORIES];
 
   const filteredSkills = selectedSkillCategory === "All" 
     ? SKILLS_DATA 
@@ -87,27 +91,28 @@ export default function ArchitectCore() {
 
   const specializations = [
     {
-      id: "components",
-      title: "Component Systems",
+      id: "architecture",
+      title: "Frontend Architecture",
       icon: <Layers className="text-primary" size={20} />,
-      tagline: "Atomic layout modules conforming strictly to WCAG guidelines.",
-      description: "My component systems feature strict accessibility (ARIA attributes), headless structural controllers, fluid modular padding spacing, and type-safe CSS custom parameter hydration.",
-      achievement: "Built system supporting 40+ dynamic pages with consistent 100% lighthouse compliance score."
+      tagline: "Building scalable, reusable, and maintainable frontend applications.",
+      description: "I design modular applications using React.js, Next.js, TypeScript, reusable component patterns, and clearly defined architectural boundaries. My approach focuses on responsive design, consistency, accessibility, and long-term maintainability.",
+      achievement: "Built reusable components and design-system patterns that reduced development effort and supported consistent experiences across multiple pages."
     },
     {
       id: "performance",
-      title: "Performance Tuning",
+      title: "Web Performance",
       icon: <Cpu className="text-tertiary" size={20} />,
-      tagline: "Reducing Largest Contentful Paint (LCP) down to absolute thresholds.",
-      description: "My optimization stack applies dynamic route-splitting chunks, synchronous preload assets, image asset pipeline optimizations, and elimination of rendering recalculation states.",
-      achievement: "Restructured legacy corporate portals to decrease average client initial render speeds by 42%."
+      tagline: "Improving application speed, responsiveness, and user experience.",
+      description: "I optimize applications using code splitting, lazy loading, image optimization, caching, bundle analysis, and efficient rendering strategies. I use Lighthouse and Chrome DevTools to identify bottlenecks and validate improvements.",
+      achievement: "Modernized legacy frontend implementations to improve loading performance, rendering efficiency, and maintainability."
     },
     {
-      id: "state",
-      title: "State Architecture",
-      icon: <ShieldCheck className="text-secondary" size={20} />,
-      tagline: "Predictable, multi-layer reactive data coordination.",
-      description: "I construct transactional event cycles using atomic models (Zustand, Redux Toolkit) to coordinate web sockets, client persistence tables, and secure local cache schemas.",
+      id: "ai-development",
+      title: "AI-Assisted Development",
+      icon: <Sparkles className="text-secondary" size={20} />,
+      tagline: "Using AI tools to improve engineering productivity and software quality.",
+      description: "I use tools such as GitHub Copilot, Cursor, and Claude for code exploration, debugging, refactoring, test generation, documentation, and development planning. Every AI-generated suggestion is reviewed, tested, and validated before implementation.",
+      achievement: "Improved development speed and problem-solving efficiency while maintaining code quality, security, and engineering standards."
     }
   ];
 
@@ -119,13 +124,13 @@ export default function ArchitectCore() {
         <div className="lg:col-span-7 space-y-6 text-left">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 border border-primary/20 rounded-full">
             <Sparkles size={12} className="text-primary animate-pulse" />
-            <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-semibold">Architectural Core Node</span>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-semibold">About Me</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-headline font-semibold tracking-tight text-on-surface leading-tight">
-            Engineering High-Contrast <br />
+            Nishant Mudgal <br />
             <span className="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">
-              Kinetic Web Platforms
+              Software Engineer
             </span>
           </h1>
 
@@ -140,7 +145,7 @@ export default function ArchitectCore() {
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-surface-container-low border border-outline-variant/40 rounded-lg text-xs font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <span>Bengaluru, India (UTC +5:30)</span>
+              <span>Delhi, India (UTC +5:30)</span>
             </div>
           </div>
         </div>
@@ -171,7 +176,7 @@ export default function ArchitectCore() {
                   NM
                 </span>
                 <span className="text-[10px] font-mono text-primary font-medium tracking-wide uppercase mt-1">
-                  {"<FRONTEND>"}
+                  {"<Builder>"}
                 </span>
               </div>
             </div>
@@ -188,7 +193,7 @@ export default function ArchitectCore() {
       </section>
 
       {/* Professional Journey Section (Staggered Layout exactly like screenshot) */}
-      <section id="professional-journey" className="space-y-10 pt-10 border-t border-outline-variant/30 text-left">
+      <section id="professional-journey" className="space-y-10 pt-10 border-t border-outline/40 text-left">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2 text-left">
           <div>
             <h2 className="text-2xl sm:text-3xl font-headline font-semibold text-on-surface">
@@ -199,14 +204,20 @@ export default function ArchitectCore() {
             </p>
           </div>
           <div className="text-xs font-mono uppercase tracking-widest text-on-surface-variant font-semibold self-start sm:self-auto pt-1">
-            02 // CHRONICLE
+            <button
+              type="button"
+              onClick={() => setActiveTab("experience")}
+              className="text-primary hover:text-primary/80 transition-colors cursor-pointer"
+            >
+              Learn More
+            </button>
           </div>
         </div>
 
         {/* Timeline container */}
         <div className="relative space-y-12 py-6">
           {/* Timeline center line (desktop) or left line (mobile) */}
-          <div className="absolute left-[16px] md:left-1/2 top-0 bottom-0 w-[1px] bg-outline-variant/40 md:-translate-x-1/2" />
+          <div className="absolute left-[16px] md:left-1/2 top-0 bottom-0 w-[1px] bg-outline/50 md:-translate-x-1/2" />
 
           {/* Row 1: McKinsey */}
           <div className="relative grid grid-cols-1 md:grid-cols-12 md:gap-12 gap-6 items-center">
@@ -232,7 +243,7 @@ export default function ArchitectCore() {
             {/* Right Column: Card */}
             <div className="pl-8 md:pl-0 md:col-span-5">
               <div className="glass-card p-4 sm:p-5 rounded-xl border border-outline-variant/35 text-xs sm:text-sm text-on-surface-variant font-medium leading-relaxed shadow-sm hover:border-outline/45 hover:shadow-md transition-all duration-300">
-                Leading frontend architecture for client-facing web applications serving 5M+ monthly users, focusing on React/Next.js modernization and design system implementation.
+                Building frontend architecture for client-facing web applications serving 5M+ monthly users, focusing on React/Next.js modernization and design system implementation.
               </div>
             </div>
           </div>
@@ -364,7 +375,7 @@ export default function ArchitectCore() {
 
               {/* Collapsible deep dive details */}
               <div className={`transition-all duration-300 overflow-hidden ${
-                activeSpecialization === spec.id ? "max-h-48 opacity-100 mt-4 pt-4 border-t border-outline-variant/30" : "max-h-0 opacity-0"
+                activeSpecialization === spec.id ? "max-h-72 opacity-100 mt-4 pt-4 border-t border-outline/40" : "max-h-0 opacity-0"
               }`}>
                 <p className="text-xs text-on-surface-variant leading-relaxed font-sans mb-3">
                   {spec.description}
@@ -379,7 +390,7 @@ export default function ArchitectCore() {
 
               {/* Decorative side accent */}
               <div className={`absolute top-0 bottom-0 left-0 w-1 transition-all ${
-                spec.id === "components" ? "bg-primary" : spec.id === "performance" ? "bg-tertiary" : "bg-secondary"
+                spec.id === "architecture" ? "bg-primary" : spec.id === "performance" ? "bg-tertiary" : "bg-secondary"
               }`} />
             </div>
           ))}
@@ -388,7 +399,7 @@ export default function ArchitectCore() {
 
       {/* Syntactic Stack Section */}
       <section className="space-y-6">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b border-outline-variant/30 pb-4 text-left">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b border-outline/40 pb-4 text-left">
           <div>
             <span className="text-xs font-mono uppercase tracking-wider text-tertiary font-semibold">Engine Components</span>
             <h2 className="text-2xl sm:text-3xl font-headline font-semibold text-on-surface mt-1">
@@ -415,7 +426,7 @@ export default function ArchitectCore() {
         </div>
 
         {/* Skills grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredSkills.map((skill) => (
             <div 
               key={skill.name}
@@ -436,17 +447,23 @@ export default function ArchitectCore() {
                 </p>
               </div>
 
-              {/* Progress visual indicator */}
+              {/* 5-step proficiency indicator */}
               <div className="mt-3.5 space-y-1">
                 <div className="flex justify-between text-[9px] font-mono text-outline">
-                  <span>SYSTEM_PROB_LEVEL</span>
-                  <span>{skill.level}%</span>
+                  <span>PROFICIENCY</span>
+                  <span>LEVEL {skill.level}/5</span>
                 </div>
-                <div className="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
-                  <div 
-                    className="bg-gradient-to-r from-primary to-secondary h-full rounded-full transition-all duration-500"
-                    style={{ width: `${skill.level}%` }}
-                  />
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((step) => (
+                    <div
+                      key={step}
+                      className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                        step <= skill.level
+                          ? "bg-gradient-to-r from-primary to-secondary"
+                          : "bg-surface-container-lowest border border-outline-variant/20"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

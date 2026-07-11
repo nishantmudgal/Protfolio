@@ -1,9 +1,26 @@
 export interface Skill {
   name: string;
-  category: "Frameworks" | "Performance" | "Systems" | "Languages";
-  level: number; // 0-100
+  category:
+    | "Languages"
+    | "Frontend"
+    | "Backend & APIs"
+    | "Testing & Quality"
+    | "DevOps & Tools"
+    | "AI-Assisted Development"
+    | "Core Skills";
+  level: number; // 1-5
   details: string;
 }
+
+export const SKILL_CATEGORIES = [
+  "Languages",
+  "Frontend",
+  "Backend & APIs",
+  "Testing & Quality",
+  "DevOps & Tools",
+  "AI-Assisted Development",
+  "Core Skills",
+] as const;
 
 export interface Project {
   id: string;
@@ -56,16 +73,60 @@ export interface TelemetryMetrics {
 }
 
 export const SKILLS_DATA: Skill[] = [
-  { name: "React 18/19", category: "Frameworks", level: 96, details: "Concurrent rendering, Server Components, Custom Hooks, Suspense architectures" },
-  { name: "TypeScript", category: "Languages", level: 95, details: "Advanced generic typing, template literal types, conditional type-guards" },
-  { name: "Next.js", category: "Frameworks", level: 92, details: "App Router, incremental static regeneration (ISR), middleware, edge runtime" },
-  { name: "Vite & Esbuild", category: "Performance", level: 94, details: "Custom bundler plugins, asset pipelines, split-chunk strategies" },
-  { name: "CSS/Tailwind", category: "Systems", level: 95, details: "Utility-first architecture, custom design system engines, fluid layouts" },
-  { name: "State Management", category: "Systems", level: 92, details: "Redux Toolkit, Zustand, Jotai, React Context optimization" },
-  { name: "Performance Auditing", category: "Performance", level: 95, details: "Chrome DevTools, flame graphs, memory leak detection, LCP/INP remediation" },
-  { name: "CSP & Security Headers", category: "Systems", level: 90, details: "Content Security Policy directives, JWT, XSS/CSRF mitigation strategies" },
-  { name: "D3.js & Canvas API", category: "Systems", level: 88, details: "Low-latency custom data visualizations, interactive charting, math-based particle structures" },
-  { name: "JavaScript (ESNext)", category: "Languages", level: 98, details: "Asynchronous loops, event loop execution contexts, proxy-based state" }
+  // Languages
+  { name: "JavaScript", category: "Languages", level: 5, details: "ESNext features, async patterns, event loop, and modern module systems" },
+  { name: "TypeScript", category: "Languages", level: 5, details: "Strict typing, generics, utility types, and type-safe API contracts" },
+  { name: "HTML5", category: "Languages", level: 5, details: "Semantic markup, ARIA roles, and accessible document structure" },
+  { name: "CSS3", category: "Languages", level: 5, details: "Layout systems, animations, custom properties, and responsive design" },
+  { name: "SCSS", category: "Languages", level: 4, details: "Variables, mixins, nesting, and modular stylesheet architecture" },
+  { name: "C++", category: "Languages", level: 3, details: "Object-oriented programming and algorithmic problem solving" },
+  { name: "Python", category: "Languages", level: 3, details: "Scripting, automation, and data processing workflows" },
+  { name: "SQL", category: "Languages", level: 4, details: "Query optimization, joins, and relational data modeling" },
+
+  // Frontend
+  { name: "React.js", category: "Frontend", level: 5, details: "Component architecture, hooks, concurrent features, and state patterns" },
+  { name: "Next.js", category: "Frontend", level: 5, details: "App Router, SSR/SSG, middleware, and edge-ready deployments" },
+  { name: "Redux", category: "Frontend", level: 4, details: "Predictable state containers, middleware, and normalized store design" },
+  { name: "Responsive UI", category: "Frontend", level: 5, details: "Fluid layouts, breakpoint strategies, and mobile-first interfaces" },
+  { name: "Design Systems", category: "Frontend", level: 5, details: "Token-driven themes, reusable components, and documentation standards" },
+  { name: "Accessibility (WCAG)", category: "Frontend", level: 5, details: "Keyboard navigation, screen reader support, and compliance auditing" },
+  { name: "JAMstack", category: "Frontend", level: 4, details: "Static generation, CDN delivery, and decoupled frontend architectures" },
+
+  // Backend & APIs
+  { name: "GraphQL", category: "Backend & APIs", level: 4, details: "Schema design, query optimization, and client-side data fetching" },
+  { name: "REST APIs", category: "Backend & APIs", level: 5, details: "Resource modeling, versioning, error handling, and integration patterns" },
+  { name: "Sitecore CMS", category: "Backend & APIs", level: 3, details: "Headless content delivery and component-driven page authoring" },
+  { name: "API Integration", category: "Backend & APIs", level: 5, details: "Third-party services, auth flows, and resilient client-side orchestration" },
+
+  // Testing & Quality
+  { name: "Jest", category: "Testing & Quality", level: 4, details: "Unit test suites, mocking strategies, and snapshot testing" },
+  { name: "React Testing Library", category: "Testing & Quality", level: 4, details: "User-centric component tests and accessibility-first assertions" },
+  { name: "Unit Testing", category: "Testing & Quality", level: 4, details: "Test-driven development and isolated module verification" },
+  { name: "Lighthouse", category: "Testing & Quality", level: 5, details: "Performance, accessibility, and SEO audits with actionable remediation" },
+  { name: "Chrome DevTools", category: "Testing & Quality", level: 5, details: "Profiling, network analysis, memory inspection, and debugging workflows" },
+  { name: "Code Reviews", category: "Testing & Quality", level: 5, details: "Quality gates, architectural feedback, and team knowledge sharing" },
+
+  // DevOps & Tools
+  { name: "Git", category: "DevOps & Tools", level: 5, details: "Branching strategies, rebasing, and collaborative version control" },
+  { name: "GitHub Actions", category: "DevOps & Tools", level: 4, details: "Automated pipelines, build workflows, and deployment triggers" },
+  { name: "CI/CD", category: "DevOps & Tools", level: 4, details: "Continuous integration, automated testing, and release automation" },
+  { name: "Docker", category: "DevOps & Tools", level: 3, details: "Containerized environments and reproducible build configurations" },
+  { name: "Storybook", category: "DevOps & Tools", level: 4, details: "Isolated component development, visual testing, and design documentation" },
+
+  // AI-Assisted Development
+  { name: "GitHub Copilot", category: "AI-Assisted Development", level: 4, details: "Inline code suggestions and accelerated boilerplate generation" },
+  { name: "Cursor", category: "AI-Assisted Development", level: 5, details: "AI-powered IDE workflows for rapid iteration and codebase exploration" },
+  { name: "AI-Assisted Debugging", category: "AI-Assisted Development", level: 4, details: "Root-cause analysis and error resolution with LLM-assisted tooling" },
+  { name: "AI-Assisted Refactoring", category: "AI-Assisted Development", level: 4, details: "Safe code transformations and pattern modernization at scale" },
+  { name: "AI-Assisted Test Creation", category: "AI-Assisted Development", level: 4, details: "Automated test scaffolding and coverage expansion with AI guidance" },
+
+  // Core Skills
+  { name: "Frontend Architecture", category: "Core Skills", level: 5, details: "Modular system design, domain boundaries, and scalable UI foundations" },
+  { name: "Performance Optimization", category: "Core Skills", level: 5, details: "Core Web Vitals tuning, bundle reduction, and render path optimization" },
+  { name: "Code Splitting", category: "Core Skills", level: 5, details: "Lazy loading, dynamic imports, and route-based chunk strategies" },
+  { name: "Caching", category: "Core Skills", level: 4, details: "Browser cache policies, service workers, and stale-while-revalidate patterns" },
+  { name: "System Design", category: "Core Skills", level: 4, details: "End-to-end frontend system planning and integration architecture" },
+  { name: "Agile/Scrum", category: "Core Skills", level: 4, details: "Sprint planning, iterative delivery, and cross-functional collaboration" },
 ];
 
 export const PROJECTS_DATA: Project[] = [
@@ -130,38 +191,52 @@ export const PROJECTS_DATA: Project[] = [
 export const EXPERIENCE_DATA: Experience[] = [
   {
     id: "mckinsey",
-    role: "Frontend Architect / Tech Lead",
+    role: "Software Engineer",
     company: "McKinsey & Company",
-    period: "2023 - Present",
-    description: [
-      "Led frontend architecture for highly critical enterprise client-facing portals, standardizing React 18 / Vite stack and reducing initial page-load times by 42%.",
-      "Designed and authored an internal enterprise-wide design system featuring strict Web Content Accessibility Guidelines (WCAG) AAA compliance, type-safe theme tokens, and lightweight headless components.",
-      "Established strict code quality guidelines, including automated bundle budgeting, strict CSP header configuration, and Lighthouse CI checks in Github Action pipelines.",
-      "Mentored a distributed team of 10+ frontend developers, spearheading modular architecture practices and state optimization techniques to eliminate redundant component tree updates."
+    period: "June 2022 - July 2026",
+    description: ["Built and maintained digital experiences used by millions of people globally, using React.js, Next.js, TypeScript, JavaScript, GraphQL, SCSS, and Sitecore.", "Modernized older parts of the platform by simplifying frontend patterns, improving existing code, and making features easier to maintain, reuse, and extend.", "Created reusable UI components and flexible page modules that helped engineering teams build faster while allowing content teams to manage digital experiences with fewer code changes.", "Improved navigation and usability across desktop, tablet, and mobile while making interfaces more inclusive through semantic HTML, keyboard-friendly interactions, responsive layouts, and WCAG-aligned accessibility practices.", "Developed polished animations and interface interactions using GSAP and SCSS while improving performance through lazy loading, bundle optimization, and efficient rendering.", "Helped maintain a secure and reliable platform by resolving dependency vulnerabilities, supporting security improvements, and investigating critical production issues.", "Used GitHub Copilot, Cursor, and other AI-assisted workflows for development, debugging, refactoring, documentation, and test creation while carefully reviewing and validating every change.", "Maintained software quality through automated testing, peer reviews, continuous integration checks, and strong test coverage across supported frontend modules."],
+    skills: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "GraphQL",
+      "SCSS",
+      "Design Systems",
+      "Accessibility",
+      "Web Performance",
+      "GitHub Actions",
+      "AI-Assisted Development"
     ],
-    skills: ["React", "TypeScript", "Vite", "Design Systems", "Web Performance", "WCAG", "CI/CD"],
     metrics: [
-      { label: "Initial Load Time", value: "-42%" },
-      { label: "Accessibility Audit", value: "AAA Level" },
-      { label: "Team Velocity Boost", value: "+30%" }
+      { label: "Monthly Users", value: "5M+" },
+      { label: "Accessibility Standards", value: "WCAG AA compliant" },
+      { label: "Test Coverage", value: "95%+" }
     ]
   },
   {
     id: "idemia",
-    role: "Senior Frontend Developer",
+    role: "Software Engineer",
     company: "IDEMIA",
-    period: "2021 - 2023",
+    period: "Jan 2018 - Sept 2019",
     description: [
-      "Developed secure and resilient biometric administration consoles and identity management interfaces using highly structured React and Redux systems.",
-      "Integrated secure authentication protocols and client-side encryption layers, while ensuring rigorous Content Security Policies (CSP) to defend against XSS exploits.",
-      "Engineered real-time data synchronization pipelines using secure persistent web sockets, managing visual state reconciliations seamlessly under low-bandwidth connections.",
-      "Pioneered testing strategies across critical web modules, implementing Jest, React Testing Library, and Cypress, reaching 92% coverage across application cores."
+      "Developed production-grade firmware for biometric access-control systems using C++, Linux, and embedded-system technologies, supporting reliable device authentication and access-control workflows.",
+      "Built secure browser-based interfaces for enterprise security platforms using JavaScript and HTML, while debugging device-level issues and contributing to improvements in overall system reliability."
     ],
-    skills: ["React", "Redux Toolkit", "Web Security", "Jest", "Cypress", "WebSockets", "Data Sync"],
+    skills: [
+      "C++",
+      "Linux",
+      "Embedded Systems",
+      "JavaScript",
+      "HTML",
+      "Firmware Development",
+      "Biometric Systems",
+      "Device Debugging"
+    ],
     metrics: [
-      { label: "Security Incidents", value: "0" },
-      { label: "Code Coverage", value: "92%" },
-      { label: "Websocket Frame Latency", value: "< 15ms" }
+      { label: "Primary Domain", value: "Biometric Security" },
+      { label: "System Layer", value: "Embedded Firmware" },
+      { label: "Interface Stack", value: "JavaScript / HTML" }
     ]
   }
 ];

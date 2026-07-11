@@ -40,7 +40,7 @@ export default function ProfessionalTimeline() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left column: Timeline tracker list */}
-        <div className="lg:col-span-6 space-y-6">
+        <div className="lg:col-span-12 space-y-12">
           <div className="relative border-l-2 border-outline-variant/40 ml-4 pl-6 space-y-8">
             {EXPERIENCE_DATA.map((exp) => {
               const isActive = activeExperienceId === exp.id;
@@ -118,10 +118,10 @@ export default function ProfessionalTimeline() {
           </div>
         </div>
 
-        {/* Right column: Embed interactive bundle size optimizer simulator */}
-        <div className="lg:col-span-6 lg:sticky lg:top-24">
+        {/* Right column: Embed interactive bundle size optimizer simulator / to re-enable the simulator, uncomment the code below and update the spen to 6 in above div */}
+        {/* <div className="lg:col-span-6 lg:sticky lg:top-24">
           <PerformanceTuningSimulator />
-        </div>
+        </div> */}
       </div>
     </div>
   );

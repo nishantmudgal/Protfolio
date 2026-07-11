@@ -6,7 +6,7 @@ import SyntaxSteel from "./components/SyntaxSteel";
 import ContactProtocol from "./components/ContactProtocol";
 import Terminal from "./components/Terminal";
 import { 
-  Terminal as TerminalIcon, Sun, Moon, Sparkles, Layers, Briefcase, Award, Send, Cpu, Heart, Menu, X 
+  Sun, Moon, Sparkles, TerminalIcon, Layers, Briefcase, Award, Send, Cpu, Heart, Menu, X, Download 
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -41,7 +41,7 @@ export default function App() {
   const renderActiveView = () => {
     switch (activeTab) {
       case "about":
-        return <ArchitectCore />;
+        return <ArchitectCore setActiveTab={setActiveTab} />;
       case "projects":
         return <CuratedArtifacts />;
       case "experience":
@@ -51,16 +51,16 @@ export default function App() {
       case "contact":
         return <ContactProtocol />;
       default:
-        return <ArchitectCore />;
+        return <ArchitectCore setActiveTab={setActiveTab} />;
     }
   };
 
   const navItems = [
-    { id: "about", label: "Architect Core", icon: <Cpu size={14} /> },
-    { id: "projects", label: "Curated Artifacts", icon: <Layers size={14} /> },
+    { id: "about", label: "Core", icon: <Cpu size={14} /> },
+    { id: "projects", label: "Artifacts", icon: <Layers size={14} /> },
     { id: "experience", label: "Professional Timeline", icon: <Briefcase size={14} /> },
-    { id: "blogs", label: "Syntax & Steel", icon: <Award size={14} /> },
-    { id: "contact", label: "Let's Build", icon: <Send size={14} /> }
+    { id: "blogs", label: "Blog & Cert.", icon: <Award size={14} /> },
+    { id: "contact", label: "Let's Connect", icon: <Send size={14} /> }
   ];
 
   return (
@@ -85,7 +85,7 @@ export default function App() {
                 Nishant Mudgal
               </h1>
               <p className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-on-surface-variant font-medium">
-                Frontend Architect / UI Engineer
+                Software Engineer / Builder
               </p>
             </div>
           </div>
@@ -115,14 +115,25 @@ export default function App() {
 
             {/* Utility control triggers & Hamburger button */}
             <div className="flex items-center gap-1.5 border-l border-outline-variant/40 md:pl-3 pl-1.5">
-              {/* Terminal query trigger */}
+              {/* Terminal query trigger
               <button 
                 onClick={() => setIsTerminalOpen(true)}
                 className="p-1.5 sm:p-2 bg-surface-container-low border border-outline-variant/30 hover:border-primary/40 hover:bg-surface-container-high rounded-lg text-primary transition-colors cursor-pointer"
                 title="Trigger Command Console [ ` ]"
               >
                 <TerminalIcon size={14} />
-              </button>
+              </button> */}
+
+              {/* Resume download */}
+              <a
+                href="/resume/Nishant_Mudgal_Resume.pdf"
+                download="Nishant_Mudgal_Resume.pdf"
+                className="p-1.5 sm:p-2 bg-surface-container-low border border-outline-variant/30 hover:border-primary/40 hover:bg-surface-container-high rounded-lg text-primary transition-colors cursor-pointer"
+                title="Download Resume"
+                aria-label="Download Resume"
+              >
+                <Download size={14} />
+              </a>
 
               {/* Theme toggle switch */}
               <button 
