@@ -72,35 +72,55 @@ export default function SyntaxSteel() {
           </div>
 
           <div className="space-y-4">
-            {BLOGS_DATA.map((blog) => (
-              <div 
-                key={blog.id}
-                onClick={() => setActiveBlog(blog)}
-                className="p-5 bg-surface-container border border-outline-variant/50 rounded-xl hover:border-outline transition-all cursor-pointer group text-left relative overflow-hidden"
-              >
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-mono text-primary uppercase bg-primary/10 px-2 py-0.5 border border-primary/25 rounded">
-                    {blog.category}
-                  </span>
-                  <div className="flex items-center gap-3 text-[10px] font-mono text-outline">
-                    <span className="flex items-center gap-1"><Calendar size={11} /> {blog.date}</span>
-                    <span className="flex items-center gap-1"><Clock size={11} /> {blog.readTime}</span>
+            {BLOGS_DATA.length > 0 ? (
+              BLOGS_DATA.map((blog) => (
+                <div 
+                  key={blog.id}
+                  onClick={() => setActiveBlog(blog)}
+                  className="p-5 bg-surface-container border border-outline-variant/50 rounded-xl hover:border-outline transition-all cursor-pointer group text-left relative overflow-hidden"
+                >
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-[10px] font-mono text-primary uppercase bg-primary/10 px-2 py-0.5 border border-primary/25 rounded">
+                      {blog.category}
+                    </span>
+                    <div className="flex items-center gap-3 text-[10px] font-mono text-outline">
+                      <span className="flex items-center gap-1"><Calendar size={11} /> {blog.date}</span>
+                      <span className="flex items-center gap-1"><Clock size={11} /> {blog.readTime}</span>
+                    </div>
+                  </div>
+
+                  <h4 className="text-base font-headline font-semibold text-on-surface group-hover:text-primary transition-colors mt-2 mb-1">
+                    {blog.title}
+                  </h4>
+                  <p className="text-xs text-on-surface-variant font-sans leading-relaxed line-clamp-2">
+                    {blog.summary}
+                  </p>
+
+                  <div className="mt-4 flex items-center gap-1 text-[10px] font-mono text-primary font-semibold group-hover:gap-2 transition-all">
+                    <span>READ ARCHITECTURAL ANALYSIS</span>
+                    <ChevronRight size={11} />
                   </div>
                 </div>
-
-                <h4 className="text-base font-headline font-semibold text-on-surface group-hover:text-primary transition-colors mt-2 mb-1">
-                  {blog.title}
-                </h4>
-                <p className="text-xs text-on-surface-variant font-sans leading-relaxed line-clamp-2">
-                  {blog.summary}
-                </p>
-
-                <div className="mt-4 flex items-center gap-1 text-[10px] font-mono text-primary font-semibold group-hover:gap-2 transition-all">
-                  <span>READ ARCHITECTURAL ANALYSIS</span>
-                  <ChevronRight size={11} />
+              ))
+            ) : (
+              <div className="p-8 bg-surface-container-low border border-outline-variant/45 rounded-xl text-center space-y-4 py-12">
+                <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto text-primary">
+                  <FileText size={22} className="opacity-80" />
+                </div>
+                <div className="space-y-1.5 max-w-sm mx-auto">
+                  <h4 className="font-headline font-semibold text-on-surface text-base">
+                    Ledger Index Offline
+                  </h4>
+                  <p className="text-xs text-on-surface-variant font-sans leading-relaxed">
+                    No technical articles or system ledgers have been cataloged in this node yet. Deep architectural analyses will compile here soon.
+                  </p>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container border border-outline-variant/30 rounded-lg text-[10px] font-mono text-outline">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                  <span>STATUS: WAITING_FOR_COMPILATION</span>
                 </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
 
