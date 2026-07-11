@@ -11,7 +11,7 @@ export default function CuratedArtifacts() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeProjectDemo, setActiveProjectDemo] = useState<string>("hyperion-analytics");
 
-  const categories = ["All", "Applications", "Tools & Packages", "Shaders/Creative"];
+  const categories = ["All", "Web Applications", "Tools & Packages", "Shaders/Creative"];
 
   const filteredProjects = selectedCategory === "All"
     ? PROJECTS_DATA
@@ -19,14 +19,16 @@ export default function CuratedArtifacts() {
 
   const renderActiveDemo = () => {
     switch (activeProjectDemo) {
-      case "hyperion-analytics":
-        return <HyperionDemo />;
-      case "kinetic-wallet":
-        return <WalletDemo />;
-      case "nexus-orchestrator":
-        return <NexusDemo />;
-      case "prism-shaders":
-        return <PrismCanvasDemo />;
+      // case "hyperion-analytics":
+      //   return <HyperionDemo />;
+      // case "kinetic-wallet":
+      //   return <WalletDemo />;
+      // case "nexus-orchestrator":
+      //   return <NexusDemo />;
+      //   case "prism-shaders":
+      //     return <PrismCanvasDemo />;
+        case "interactive-developer-portfolio":
+          return <Terminal />;
       default:
         return <HyperionDemo />;
     }

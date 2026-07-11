@@ -27,7 +27,7 @@ export interface Project {
   title: string;
   subtitle: string;
   description: string;
-  category: "Applications" | "Tools & Packages" | "Shaders/Creative";
+  category: "Web Applications" | "Tools & Packages" | "Shaders/Creative";
   tags: string[];
   metrics: { label: string; value: string }[];
   highlight: string;
@@ -131,60 +131,25 @@ export const SKILLS_DATA: Skill[] = [
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: "hyperion-analytics",
-    title: "Hyperion Analytics Engine",
-    subtitle: "Real-time stream telemetry dashboard",
-    description: "A low-latency telemetric reporting platform rendering fast timeseries data. Designed with custom D3-driven micro-charts, heavy request request bundling, and virtualized visual lists to sustain 60 FPS under intensive data feeds.",
-    category: "Applications",
-    tags: ["React", "TypeScript", "D3.js", "Zustand", "Performance"],
-    metrics: [
-      { label: "Throughput", value: "10k msg/sec" },
-      { label: "Frame Rate", value: "60 FPS stable" },
-      { label: "Bundle Overhead", value: "< 42KB gzip" }
+    id: "interactive-developer-portfolio",
+    title: "Interactive Developer Portfolio",
+    subtitle: "A modern, terminal-inspired software engineering portfolio",
+    description: "A responsive personal portfolio designed to present my experience, skills, projects, certifications, blogs, and contact information through a polished and interactive interface. It combines structured professional content with theme switching, motion-driven transitions, interactive project simulations, and a developer-style command terminal.",
+    category: "Web Applications",
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Motion",
+      "Responsive Design"
     ],
-    highlight: "Sustains seamless interface updates with virtualized rendering techniques during high-frequency events."
-  },
-  {
-    id: "kinetic-wallet",
-    title: "Kinetic Wallet Interface",
-    subtitle: "Next-gen Web3 asset client & controller",
-    description: "An elegant cryptographic wallet interface featuring simulated asset swapping, multi-chain balances, transaction queue tracing, and atomic gas cost estimates. Focuses on spatial layout, motion layout animations, and visual security feedback.",
-    category: "Applications",
-    tags: ["React", "Motion", "Tailwind CSS", "Web3 Sim", "UX Physics"],
     metrics: [
-      { label: "Sync Latency", value: "< 140ms" },
-      { label: "FPS on Transition", value: "59.8 Avg" },
-      { label: "Accessibility Score", value: "100%" }
+      { label: "Core Sections", value: "5" },
+      { label: "Theme Modes", value: "Light / Dark" },
+      { label: "Interactive Layer", value: "Live Demos + Terminal" }
     ],
-    highlight: "Uses spring physics motion vectors to render fluid cryptographic asset swapping mechanics."
-  },
-  {
-    id: "nexus-orchestrator",
-    title: "Nexus API Orchestrator",
-    subtitle: "Low-overhead API compiler & client sandbox",
-    description: "An interactive API compiler that allows engineers to prototype server endpoints, model payload structures, and simulate latency distribution profiles. Includes custom response-time charting and inline JSON syntax highlighting.",
-    category: "Tools & Packages",
-    tags: ["TypeScript", "API Compiler", "Tailwind", "Telemetry", "JSON Engine"],
-    metrics: [
-      { label: "Compilation Speed", value: "1.2ms" },
-      { label: "Memory Footprint", value: "2.4MB" },
-      { label: "Nesting Depth Support", value: "Infinite" }
-    ],
-    highlight: "Enables instant simulation of throttled, faulty, or optimized REST endpoints."
-  },
-  {
-    id: "prism-shaders",
-    title: "Prism Shaders & Particles",
-    subtitle: "Generative math-driven canvas playground",
-    description: "A creative web rendering experiment harnessing high-performance HTML5 Canvas APIs and mathematical functions to generate noise maps, gravitational orbits, and particle webs reacting to mouse vectors.",
-    category: "Shaders/Creative",
-    tags: ["HTML5 Canvas", "Trigonometry", "Creative Coding", "Micro-physics"],
-    metrics: [
-      { label: "Particle Capacity", value: "3,000 Nodes" },
-      { label: "Math Computations", value: "120k/frame" },
-      { label: "Render Engine", value: "Native Context2D" }
-    ],
-    highlight: "Translates complex trigonometric vector fields into elegant, high-frequency kinetic artwork."
+    highlight: "Combines a clear professional profile with responsive design, reusable components, developer-focused interactions, and hands-on project demonstrations."
   }
 ];
 
