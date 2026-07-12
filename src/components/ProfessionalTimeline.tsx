@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { EXPERIENCE_DATA } from "../types";
 import { PerformanceTuningSimulator } from "./InteractiveWidget";
-import { 
-  Building2, Briefcase, Calendar, CheckSquare, Sparkles, TrendingUp, Cpu, Award 
+import {
+  Building2, Briefcase, Calendar, CheckSquare, Sparkles, TrendingUp, Cpu, Award
 } from "lucide-react";
 
 export default function ProfessionalTimeline() {
@@ -20,19 +20,33 @@ export default function ProfessionalTimeline() {
         </div>
 
         {/* Quick high level summary */}
+        {/* Quick high-level summary */}
         <div className="flex flex-wrap gap-4 items-center">
           <div className="flex items-center gap-2">
             <TrendingUp size={16} className="text-tertiary" />
+
             <div className="text-xs font-mono">
-              <span className="text-on-surface-variant block uppercase text-[9px]">Average Load Reduction</span>
-              <span className="text-on-surface font-semibold">-42% Page Timing</span>
+              <span className="text-on-surface-variant block uppercase text-[9px]">
+                Reusable UI Development
+              </span>
+
+              <span className="text-on-surface font-semibold">
+                40% Less Repeated Effort
+              </span>
             </div>
           </div>
+
           <div className="flex items-center gap-2">
             <Award size={16} className="text-primary" />
+
             <div className="text-xs font-mono">
-              <span className="text-on-surface-variant block uppercase text-[9px]">Design Standards</span>
-              <span className="text-on-surface font-semibold">WCAG AAA Compliance</span>
+              <span className="text-on-surface-variant block uppercase text-[9px]">
+                Accessibility Standard
+              </span>
+
+              <span className="text-on-surface font-semibold">
+                WCAG AA Aligned
+              </span>
             </div>
           </div>
         </div>
@@ -45,23 +59,21 @@ export default function ProfessionalTimeline() {
             {EXPERIENCE_DATA.map((exp) => {
               const isActive = activeExperienceId === exp.id;
               return (
-                <div 
+                <div
                   key={exp.id}
                   className="relative group cursor-pointer"
                   onClick={() => setActiveExperienceId(exp.id)}
                 >
                   {/* Timeline indicator node */}
-                  <span className={`absolute -left-[31px] top-1.5 flex items-center justify-center w-4 h-4 rounded-full border transition-all ${
-                    isActive 
-                      ? "bg-primary border-primary ring-4 ring-primary/20 scale-125" 
+                  <span className={`absolute -left-[31px] top-1.5 flex items-center justify-center w-4 h-4 rounded-full border transition-all ${isActive
+                      ? "bg-primary border-primary ring-4 ring-primary/20 scale-125"
                       : "bg-surface border-outline group-hover:border-primary"
-                  }`} />
+                    }`} />
 
-                  <div className={`p-5 bg-surface-container border rounded-xl transition-all ${
-                    isActive 
-                      ? "border-primary shadow-md" 
+                  <div className={`p-5 bg-surface-container border rounded-xl transition-all ${isActive
+                      ? "border-primary shadow-md"
                       : "border-outline-variant/50 hover:border-outline-variant"
-                  }`}>
+                    }`}>
                     <div className="flex flex-wrap justify-between items-start gap-2 mb-2">
                       <div>
                         <h3 className="text-base font-headline font-semibold text-on-surface group-hover:text-primary transition-colors flex items-center gap-2">

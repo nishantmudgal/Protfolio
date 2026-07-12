@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { 
-  Send, Mail, Phone, MapPin, Copy, Check, Github, Linkedin, Code, Layers, ShieldCheck, Heart 
+import {
+  Send, Mail, Phone, MapPin, Copy, Check, Github, Linkedin, Code, Layers, ShieldCheck, Heart
 } from "lucide-react";
 
 export default function ContactProtocol() {
@@ -48,7 +48,7 @@ export default function ContactProtocol() {
         name: "",
         email: "",
         organization: "",
-        protocolType: "General Consulting",
+        protocolType: "General Inquiry",
         payload: ""
       });
       setFormStatus("success");
@@ -64,8 +64,11 @@ export default function ContactProtocol() {
   const externalLinks = [
     { label: "GitHub Hub", link: "https://github.com/nishantmudgal", icon: <Github size={16} /> },
     { label: "LinkedIn Connect", link: "https://www.linkedin.com/in/nishant-mudgal", icon: <Linkedin size={16} /> },
-    { label: "LeetCode Matrix", link: "https://leetcode.com", icon: <Code size={16} /> }
-  ];
+    {
+      label: "LeetCode Matrix",
+      link: "https://leetcode.com/u/nishantmudgal",
+      icon: <Code size={16} />
+    }];
 
   return (
     <div className="space-y-12 text-left">
@@ -73,7 +76,7 @@ export default function ContactProtocol() {
       <div className="border-b border-outline-variant/30 pb-4">
         <span className="text-xs font-mono uppercase tracking-wider text-secondary font-semibold">Initiate Socket Protocol</span>
         <h2 className="text-2xl sm:text-3xl font-headline font-semibold text-on-surface mt-1">
-          Let's Build the Next Protocol
+          Let's Connect
         </h2>
       </div>
 
@@ -89,8 +92,8 @@ export default function ContactProtocol() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-[10px] font-mono text-on-surface-variant uppercase tracking-wider">Operator Name *</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
@@ -103,8 +106,8 @@ export default function ContactProtocol() {
 
               <div className="space-y-1.5">
                 <label className="text-[10px] font-mono text-on-surface-variant uppercase tracking-wider">Operator Email *</label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
@@ -119,8 +122,8 @@ export default function ContactProtocol() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-[10px] font-mono text-on-surface-variant uppercase tracking-wider">Enterprise organization</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="organization"
                   value={formData.organization}
                   onChange={handleInputChange}
@@ -131,8 +134,8 @@ export default function ContactProtocol() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-mono text-on-surface-variant uppercase tracking-wider">Protocol Type</label>
-                <select 
+                <label className="text-[10px] font-mono text-on-surface-variant uppercase tracking-wider">Query Type</label>
+                <select
                   name="protocolType"
                   value={formData.protocolType}
                   onChange={handleInputChange}
@@ -150,7 +153,7 @@ export default function ContactProtocol() {
 
             <div className="space-y-1.5">
               <label className="text-[10px] font-mono text-on-surface-variant uppercase tracking-wider">Transmission Payload *</label>
-              <textarea 
+              <textarea
                 name="payload"
                 rows={4}
                 value={formData.payload}
@@ -158,8 +161,7 @@ export default function ContactProtocol() {
                 required
                 disabled={formStatus === "submitting"}
                 className="w-full bg-surface-container-lowest border border-outline-variant/60 rounded-lg px-3 py-2 text-xs font-mono text-on-surface focus:outline-none focus:border-primary/50 resize-none disabled:opacity-50"
-                placeholder="Include key-value structural requirements, system deadlines, or performance targets..."
-              />
+                placeholder="Share a brief message about the opportunity, project, collaboration, or topic you would like to discuss..." />
             </div>
 
             {formStatus === "error" && (
@@ -174,7 +176,7 @@ export default function ContactProtocol() {
               </div>
             )}
 
-            <button 
+            <button
               type="submit"
               disabled={formStatus === "submitting"}
               className="w-full py-2.5 bg-gradient-to-r from-primary via-primary-container to-secondary text-white hover:brightness-110 active:scale-[0.99] font-headline font-medium text-xs sm:text-sm rounded-lg transition-all disabled:opacity-50 disabled:pointer-events-none cursor-pointer flex justify-center items-center gap-2"
@@ -222,7 +224,7 @@ export default function ContactProtocol() {
             <h3 className="text-sm font-headline font-bold text-on-surface uppercase tracking-wider border-b border-outline-variant/30 pb-2">
               Direct Core Nodes
             </h3>
-            
+
             <div className="space-y-3">
               {networkNodes.map((node) => {
                 const isCopied = copiedField === node.label;
@@ -237,7 +239,7 @@ export default function ContactProtocol() {
                       </span>
                     </div>
 
-                    <button 
+                    <button
                       onClick={() => handleCopy(node.value, node.label)}
                       className="p-2 bg-surface-container hover:bg-surface-container-high text-primary hover:text-primary-fixed border border-outline-variant/40 rounded-lg transition-colors cursor-pointer"
                       title={node.actionText}
@@ -254,10 +256,10 @@ export default function ContactProtocol() {
               <span className="text-[10px] uppercase font-mono tracking-wider text-outline block mb-2.5">Unified Integration Links</span>
               <div className="grid grid-cols-3 gap-2">
                 {externalLinks.map((item) => (
-                  <a 
+                  <a
                     key={item.label}
                     href={item.link}
-                    target="_blank" 
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center justify-center p-2.5 bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 hover:bg-surface-container-high rounded-xl text-on-surface-variant hover:text-primary transition-all text-center group"
                   >

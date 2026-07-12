@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Nishant Mudgal — Developer Portfolio
 
-# Run and deploy your AI Studio app
+An interactive software engineering portfolio showcasing my professional
+experience, technical skills, projects, certifications, blogs, and contact
+information.
 
-This contains everything you need to run your app locally.
+## Technology Stack
 
-View your app in AI Studio: https://ai.studio/apps/c55507a1-652c-4679-a00f-35d8e0c2c4e9
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Motion
+- Lucide React
+- Vercel
+
+## Features
+
+- Responsive portfolio interface
+- Light and dark themes
+- Interactive developer terminal
+- Professional experience timeline
+- Project demonstrations
+- Skills and specialization areas
+- Certifications and blogs
+- Contact interface
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm install
+npm run dev

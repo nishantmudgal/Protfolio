@@ -1,13 +1,13 @@
 export interface Skill {
   name: string;
   category:
-    | "Languages"
-    | "Frontend"
-    | "Backend & APIs"
-    | "Testing & Quality"
-    | "DevOps & Tools"
-    | "AI-Assisted Development"
-    | "Core Skills";
+  | "Languages"
+  | "Frontend"
+  | "Backend & APIs"
+  | "Testing & Quality"
+  | "DevOps & Tools"
+  | "AI-Assisted Development"
+  | "Core Skills";
   level: number; // 1-5
   details: string;
 }
@@ -152,8 +152,8 @@ export const PROJECTS_DATA: Project[] = [
       { label: "Interactive Layer", value: "Live Demos + Terminal" }
     ],
     highlight: "Combines a clear professional profile with responsive design, reusable components, developer-focused interactions, and hands-on project demonstrations.",
-    liveUrl: "https://ais-pre-3wjzz3hcfrbigjjxzrribj-651985466334.asia-east1.run.app",
-    githubUrl: "https://github.com/nishantmudgal/Protfolio"
+    liveUrl: "https://nishant-mudgal.vercel.app/",
+    githubUrl: "https://github.com/nishantmudgal/Portfolio"
   }
 ];
 
@@ -226,45 +226,45 @@ export const CERTIFICATIONS_DATA: Certification[] = [
 ];
 
 export const BLOGS_DATA: BlogPost[] = [
-//   {
-//     id: "scaling-frontend-architecture",
-//     title: "Scaling Frontend Architecture in Enterprise Portals",
-//     summary: "A deep dive into modular designs, domain-driven folder hierarchies, federated configurations, and how to maintain compile-time type-safety across distributed software teams.",
-//     date: "May 15, 2024",
-//     readTime: "8 min read",
-//     category: "Architecture",
-//     content: `
-// # Scaling Frontend Architecture in Enterprise Portals
+  //   {
+  //     id: "scaling-frontend-architecture",
+  //     title: "Scaling Frontend Architecture in Enterprise Portals",
+  //     summary: "A deep dive into modular designs, domain-driven folder hierarchies, federated configurations, and how to maintain compile-time type-safety across distributed software teams.",
+  //     date: "May 15, 2024",
+  //     readTime: "8 min read",
+  //     category: "Architecture",
+  //     content: `
+  // # Scaling Frontend Architecture in Enterprise Portals
 
-// As organizations scale, their frontend platforms often devolve into rigid monoliths. Features become interlocked, deployment speeds crater, and different engineering teams accidentally override each other's visual states. 
+  // As organizations scale, their frontend platforms often devolve into rigid monoliths. Features become interlocked, deployment speeds crater, and different engineering teams accidentally override each other's visual states. 
 
-// In this article, we outline a modern architecture designed to sustain complex client portals without sacrificing development velocity.
+  // In this article, we outline a modern architecture designed to sustain complex client portals without sacrificing development velocity.
 
-// ## 1. Domain-Driven Design (DDD) in Frontend Folders
-// Instead of grouping files strictly by technical role (e.g., \`/components\`, \`/hooks\`, \`/services\`), structure your codebase by domain features. 
+  // ## 1. Domain-Driven Design (DDD) in Frontend Folders
+  // Instead of grouping files strictly by technical role (e.g., \`/components\`, \`/hooks\`, \`/services\`), structure your codebase by domain features. 
 
-// \`\`\`bash
-// src/
-// ├── domains/
-// │   ├── identity/
-// │   │   ├── components/
-// │   │   ├── hooks/
-// │   │   └── index.ts  # Clear public API contract
-// │   ├── telemetry/
-// │   └── billing/
-// ├── shared/
-// │   ├── ui-kit/
-// │   └── utils/
-// \`\`\`
+  // \`\`\`bash
+  // src/
+  // ├── domains/
+  // │   ├── identity/
+  // │   │   ├── components/
+  // │   │   ├── hooks/
+  // │   │   └── index.ts  # Clear public API contract
+  // │   ├── telemetry/
+  // │   └── billing/
+  // ├── shared/
+  // │   ├── ui-kit/
+  // │   └── utils/
+  // \`\`\`
 
-// By enforcing a strict contract where domains can only communicate through defined entry points (\`index.ts\`), you prevent spaghetti code and make future migrations a breeze.
+  // By enforcing a strict contract where domains can only communicate through defined entry points (\`index.ts\`), you prevent spaghetti code and make future migrations a breeze.
 
-// ## 2. Enforcing Strict Type boundaries
-// Leverage TypeScript’s absolute imports and strict path mapping to lock down internal domain logic. Use ESLint rules to prevent developers from importing directly into the private folders of another domain.
+  // ## 2. Enforcing Strict Type boundaries
+  // Leverage TypeScript’s absolute imports and strict path mapping to lock down internal domain logic. Use ESLint rules to prevent developers from importing directly into the private folders of another domain.
 
-// ## 3. Bundle Budgets & Performance Guards
-// Implement rigid bundle budgets within your compiler configurations. If any single feature bundle exceeds **50KB gzipped**, the build system should generate warning alerts or actively block the integration pipeline.
-//     `
-//   },
+  // ## 3. Bundle Budgets & Performance Guards
+  // Implement rigid bundle budgets within your compiler configurations. If any single feature bundle exceeds **50KB gzipped**, the build system should generate warning alerts or actively block the integration pipeline.
+  //     `
+  //   },
 
 ];

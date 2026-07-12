@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { PROJECTS_DATA } from "../types";
-import { 
-  HyperionDemo, WalletDemo, NexusDemo, PrismCanvasDemo 
+import {
+  HyperionDemo, WalletDemo, NexusDemo, PrismCanvasDemo
 } from "./InteractiveWidget";
-import { 
-  Sparkles, Layers, Terminal as TerminalIcon, ChevronRight, Play, ExternalLink, RefreshCw, BarChart2, Github 
+import {
+  Sparkles, Layers, Terminal as TerminalIcon, ChevronRight, Play, ExternalLink, RefreshCw, BarChart2, Github
 } from "lucide-react";
 import Terminal from "./Terminal";
 
@@ -55,11 +55,10 @@ export default function CuratedArtifacts() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1 text-xs font-mono rounded-lg border transition-all ${
-                selectedCategory === cat 
-                  ? "bg-primary/20 text-primary border-primary/40" 
+              className={`px-3 py-1 text-xs font-mono rounded-lg border transition-all ${selectedCategory === cat
+                  ? "bg-primary/20 text-primary border-primary/40"
                   : "bg-surface-container-high border-outline-variant/65 hover:border-outline text-on-surface-variant"
-              }`}
+                }`}
             >
               {cat.toUpperCase()}
             </button>
@@ -93,13 +92,7 @@ export default function CuratedArtifacts() {
               {renderActiveDemo()}
             </div>
 
-            {/* Quick architectural footer notes */}
-            <div className="px-4 py-3 bg-surface-container-low text-xs text-on-surface-variant/80 text-left border-t border-outline-variant/30 flex items-start gap-2 font-mono">
-              <span className="text-secondary select-none font-bold">INFO:</span>
-              <p className="text-[10px] leading-relaxed">
-                This playground runs native React client state engines and real HTML5 canvas particle buffers to demonstrate performance optimization under high loads.
-              </p>
-            </div>
+
           </div>
         </div>
 
@@ -118,14 +111,13 @@ export default function CuratedArtifacts() {
             {filteredProjects.map((proj) => {
               const isActive = activeProjectDemo === proj.id;
               return (
-                <div 
+                <div
                   key={proj.id}
                   onClick={() => setActiveProjectDemo(proj.id)}
-                  className={`flex-shrink-0 w-[290px] sm:w-[350px] md:w-[380px] snap-start p-5 bg-surface-container border rounded-xl text-left transition-all cursor-pointer relative group flex flex-col justify-between ${
-                    isActive 
-                      ? "border-primary ring-1 ring-primary/40 shadow-lg" 
+                  className={`flex-shrink-0 w-[290px] sm:w-[350px] md:w-[380px] snap-start p-5 bg-surface-container border rounded-xl text-left transition-all cursor-pointer relative group flex flex-col justify-between ${isActive
+                      ? "border-primary ring-1 ring-primary/40 shadow-lg"
                       : "border-outline-variant/50 hover:border-outline-variant hover:bg-surface-container/85"
-                  }`}
+                    }`}
                 >
                   <div>
                     <div className="flex justify-between items-start mb-2.5">
@@ -138,11 +130,10 @@ export default function CuratedArtifacts() {
                         </h3>
                       </div>
 
-                      <span className={`text-[10px] font-mono rounded px-1.5 py-0.5 border shrink-0 ${
-                        isActive 
-                          ? "bg-primary/10 text-primary border-primary/20" 
+                      <span className={`text-[10px] font-mono rounded px-1.5 py-0.5 border shrink-0 ${isActive
+                          ? "bg-primary/10 text-primary border-primary/20"
                           : "bg-surface-container-high text-on-surface-variant border-outline-variant/40"
-                      }`}>
+                        }`}>
                         {isActive ? "ACTIVE" : "PLAY DEMO"}
                       </span>
                     </div>
@@ -183,9 +174,9 @@ export default function CuratedArtifacts() {
                     {(proj.liveUrl || proj.githubUrl) && (
                       <div className="flex items-center gap-2 mt-3.5 pt-3 border-t border-outline-variant/20" onClick={(e) => e.stopPropagation()}>
                         {proj.liveUrl && (
-                          <a 
-                            href={proj.liveUrl} 
-                            target="_blank" 
+                          <a
+                            href={proj.liveUrl}
+                            target="_blank"
                             rel="noreferrer"
                             className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/45 rounded-lg text-[10px] font-mono text-primary font-semibold transition-all cursor-pointer"
                           >
@@ -194,9 +185,9 @@ export default function CuratedArtifacts() {
                           </a>
                         )}
                         {proj.githubUrl && (
-                          <a 
-                            href={proj.githubUrl} 
-                            target="_blank" 
+                          <a
+                            href={proj.githubUrl}
+                            target="_blank"
                             rel="noreferrer"
                             className="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/50 hover:border-outline rounded-lg text-[10px] font-mono text-on-surface-variant hover:text-on-surface font-semibold transition-all cursor-pointer"
                           >
@@ -209,9 +200,8 @@ export default function CuratedArtifacts() {
                   </div>
 
                   {/* Highlight bar indicator */}
-                  <div className={`absolute top-0 bottom-0 left-0 w-1 transition-all rounded-l-xl ${
-                    isActive ? "bg-primary" : "bg-transparent"
-                  }`} />
+                  <div className={`absolute top-0 bottom-0 left-0 w-1 transition-all rounded-l-xl ${isActive ? "bg-primary" : "bg-transparent"
+                    }`} />
                 </div>
               );
             })}

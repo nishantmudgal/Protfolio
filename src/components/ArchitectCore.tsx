@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { SKILLS_DATA, SKILL_CATEGORIES } from "../types";
-import { 
+import {
   Terminal, Cpu, Layers, Sparkles, Code, CheckCircle, ArrowRight, Lightbulb,
   Briefcase, GraduationCap, MapPin, Calendar, Building2
 } from "lucide-react";
@@ -85,8 +85,8 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
 
   const categories = ["All", ...SKILL_CATEGORIES];
 
-  const filteredSkills = selectedSkillCategory === "All" 
-    ? SKILLS_DATA 
+  const filteredSkills = selectedSkillCategory === "All"
+    ? SKILLS_DATA
     : SKILLS_DATA.filter(skill => skill.category === selectedSkillCategory);
 
   const specializations = [
@@ -135,7 +135,10 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
           </h1>
 
           <p className="text-base text-on-surface-variant leading-relaxed font-sans max-w-xl">
-            I am a Frontend Architect & UI Engineer with 5+ years of experience sculpting type-safe, resilient single-page portals. My work centers on performance pipelines, accessible components, and modular client-side state managers.
+            I am a Software Engineer with 5+ years of experience building user-focused
+            web applications and digital platforms. My work focuses on React.js,
+            Next.js, TypeScript, reusable frontend architecture, accessibility,
+            performance, software quality, and AI-assisted development.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">
@@ -155,7 +158,7 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
           <div className="relative w-72 h-72 rounded-2xl border border-outline-variant/60 bg-surface-container-low flex items-center justify-center overflow-hidden p-6 shadow-xl group">
             {/* Background glowing grid effect */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293d_1px,transparent_1px),linear-gradient(to_bottom,#1f293d_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
-            
+
             {/* Ambient dynamic accent circles */}
             <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-primary/10 blur-3xl group-hover:scale-125 transition-transform duration-700" />
             <div className="absolute bottom-1/4 right-1/4 w-32 h-32 rounded-full bg-secondary/10 blur-3xl group-hover:scale-125 transition-transform duration-700" />
@@ -170,7 +173,7 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
                     <circle cx="50" cy="50" r="28" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="5 2" className="text-tertiary" />
                   </svg>
                 </div>
-                
+
                 {/* Elegant initials */}
                 <span className="text-3xl font-headline font-bold text-on-surface tracking-wider">
                   NM
@@ -183,7 +186,7 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
 
             {/* Outer coordinate labels */}
             <div className="absolute top-3 left-4 text-[9px] font-mono text-outline">
-              LATENCY_THRESHOLD: 100ms
+              FOCUS: ACCESSIBLE_WEB
             </div>
             <div className="absolute bottom-3 right-4 text-[9px] font-mono text-outline">
               COMPILER: VITE_ESBUILD
@@ -227,7 +230,7 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
             {/* Left Column: Aligned Right (Desktop), Aligned Left (Mobile) */}
             <div className="pl-8 md:pl-0 md:col-span-5 md:text-right space-y-1">
               <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-tertiary uppercase block">
-                JUNE 2022 – PRESENT
+                JUNE 2022 – JULY 2026
               </span>
               <h3 className="text-lg font-headline font-bold text-on-surface leading-tight">
                 Software Engineer (Full-time)
@@ -243,7 +246,9 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
             {/* Right Column: Card */}
             <div className="pl-8 md:pl-0 md:col-span-5">
               <div className="glass-card p-4 sm:p-5 rounded-xl border border-outline-variant/35 text-xs sm:text-sm text-on-surface-variant font-medium leading-relaxed shadow-sm hover:border-outline/45 hover:shadow-md transition-all duration-300">
-                Building frontend architecture for client-facing web applications serving 5M+ monthly users, focusing on React/Next.js modernization and design system implementation.
+                Built and maintained client-facing web applications used by 5M+ monthly
+                users, contributing to React and Next.js modernization, reusable design
+                systems, accessibility, performance, testing, and production support.
               </div>
             </div>
           </div>
@@ -269,7 +274,7 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
                 SEPT 2020 - JUNE 2022
               </span>
               <h3 className="text-lg font-headline font-bold text-on-surface leading-tight">
-                M.Tech - Machine Intelligence
+                M.Tech - Machine Intelligence and Data Analytics
               </h3>
               <p className="text-sm font-semibold text-on-surface-variant">
                 Netaji Subhash University of Technology
@@ -327,7 +332,7 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
                 AUG 2014 - JUNE 2018
               </span>
               <h3 className="text-lg font-headline font-bold text-on-surface leading-tight">
-                B.Tech - Computer Science
+                B.Tech - Computer Science Engineering
               </h3>
               <p className="text-sm font-semibold text-on-surface-variant">
                 Chitkara University
@@ -348,14 +353,13 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {specializations.map((spec) => (
-            <div 
+            <div
               key={spec.id}
               onClick={() => setActiveSpecialization(activeSpecialization === spec.id ? null : spec.id)}
-              className={`bg-surface-container border p-5 rounded-xl text-left transition-all duration-300 cursor-pointer relative overflow-hidden ${
-                activeSpecialization === spec.id 
-                  ? "border-primary ring-1 ring-primary/40 shadow-lg translate-y-[-2px]" 
-                  : "border-outline-variant/60 hover:border-outline hover:translate-y-[-1px] shadow"
-              }`}
+              className={`bg-surface-container border p-5 rounded-xl text-left transition-all duration-300 cursor-pointer relative overflow-hidden ${activeSpecialization === spec.id
+                ? "border-primary ring-1 ring-primary/40 shadow-lg translate-y-[-2px]"
+                : "border-outline-variant/60 hover:border-outline hover:translate-y-[-1px] shadow"
+                }`}
             >
               <div className="flex justify-between items-start mb-3">
                 <div className="p-2 bg-surface-container-high border border-outline-variant/60 rounded-lg">
@@ -374,9 +378,8 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
               </p>
 
               {/* Collapsible deep dive details */}
-              <div className={`transition-all duration-300 overflow-hidden ${
-                activeSpecialization === spec.id ? "max-h-72 opacity-100 mt-4 pt-4 border-t border-outline/40" : "max-h-0 opacity-0"
-              }`}>
+              <div className={`transition-all duration-300 overflow-hidden ${activeSpecialization === spec.id ? "max-h-72 opacity-100 mt-4 pt-4 border-t border-outline/40" : "max-h-0 opacity-0"
+                }`}>
                 <p className="text-xs text-on-surface-variant leading-relaxed font-sans mb-3">
                   {spec.description}
                 </p>
@@ -389,9 +392,8 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
               </div>
 
               {/* Decorative side accent */}
-              <div className={`absolute top-0 bottom-0 left-0 w-1 transition-all ${
-                spec.id === "architecture" ? "bg-primary" : spec.id === "performance" ? "bg-tertiary" : "bg-secondary"
-              }`} />
+              <div className={`absolute top-0 bottom-0 left-0 w-1 transition-all ${spec.id === "architecture" ? "bg-primary" : spec.id === "performance" ? "bg-tertiary" : "bg-secondary"
+                }`} />
             </div>
           ))}
         </div>
@@ -406,18 +408,17 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
               Syntactic Stack
             </h2>
           </div>
-          
+
           {/* Category Filter Pills */}
           <div className="flex flex-wrap gap-1.5">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setSelectedSkillCategory(cat)}
-                className={`px-3 py-1 text-xs font-mono rounded-lg border transition-all cursor-pointer ${
-                  selectedSkillCategory === cat 
-                    ? "bg-primary/20 text-primary border-primary/40 font-semibold" 
-                    : "bg-surface-container-high border-outline-variant/55 hover:border-outline text-on-surface-variant"
-                }`}
+                className={`px-3 py-1 text-xs font-mono rounded-lg border transition-all cursor-pointer ${selectedSkillCategory === cat
+                  ? "bg-primary/20 text-primary border-primary/40 font-semibold"
+                  : "bg-surface-container-high border-outline-variant/55 hover:border-outline text-on-surface-variant"
+                  }`}
               >
                 {cat.toUpperCase()}
               </button>
@@ -428,7 +429,7 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
         {/* Skills grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredSkills.map((skill) => (
-            <div 
+            <div
               key={skill.name}
               className="bg-surface-container p-4 border border-outline-variant/40 rounded-xl flex flex-col justify-between hover:border-outline-variant transition-colors text-left"
             >
@@ -457,11 +458,10 @@ export default function ArchitectCore({ setActiveTab }: ArchitectCoreProps) {
                   {[1, 2, 3, 4, 5].map((step) => (
                     <div
                       key={step}
-                      className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
-                        step <= skill.level
-                          ? "bg-gradient-to-r from-primary to-secondary"
-                          : "bg-surface-container-lowest border border-outline-variant/20"
-                      }`}
+                      className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${step <= skill.level
+                        ? "bg-gradient-to-r from-primary to-secondary"
+                        : "bg-surface-container-lowest border border-outline-variant/20"
+                        }`}
                     />
                   ))}
                 </div>
